@@ -1,0 +1,23 @@
+{
+  "name": "nodeweather-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/SafeMood/nodeweather-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/SafeMood/nodeweather-app/issues"
+  },
+  "homepage": "https://gitlab.com/SafeMood/nodeweather-app#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
