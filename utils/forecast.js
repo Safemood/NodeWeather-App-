@@ -1,19 +1,18 @@
 const request  = require('request')
-const forecast = (longitude,latitude , callback) => {
+const forecast = (latitude,longitude , callback) => {
    let  geoCode = latitude + "," + longitude
     const url = "https://api.darksky.net/forecast/2c9793589b3348604988a54114fd50e9/"+ geoCode
 
-request({ url , json : true},(error,response) => {
+request({ url , json : true},(error,{body}) => {
     if(error){
         callback('Unable to connect to weather service',undefined)
-     }else if(response.body.error){
+     }else if( body.error){
          callback('Unable to find the location',undefined)
     }else{
-        callback(undefined,{
-            summary  : response.body.daily.data[0].summary,
-            temperature  : response.body.currently.temperature,
-            chance : response.body.currently.precipProbability
-        })
+        summary  =  body.daily.data[0].summary 
+        const {temperature , precipProbability:chance} = body.currently
+       
+        callback(undefined,summary + ' it is currently ' + temperature +' degree. There is a ' + chance +'% chance of rain')
      }
    
 })
